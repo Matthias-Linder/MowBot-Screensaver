@@ -15,6 +15,7 @@ var c = canvas.getContext("2d");
 
 let displayStation = true;
 let simulateCharging = false;
+let chargingCoefficient = 1;
 
 class Mower {
   constructor(width, height, image, speed, turningSpeed) {
@@ -197,6 +198,7 @@ let loop = function () {
 loop();
 
 function update() {
+  mower.chargingThreshold = mower.speed * chargingCoefficient;
   if(mower.chargeCounter >= mower.chargingThreshold && !mower.chargeParking){
     menu.btnText = "searching...";
     mower.searching = true;
@@ -258,7 +260,9 @@ function update() {
     }
   }
   if (mower.turning) {
-    mower.chargeCounter += mower.speed;
+    if(simulateCharging && displayStation){
+      mower.chargeCounter += mower.speed;
+    }
     if (mower.randomAngle >= 0) {
       mower.angle += mower.turningSpeed;
       mower.randomAngle -= mower.turningSpeed;
@@ -333,6 +337,7 @@ function repaint() {
   c.translate(-mower.posX, -mower.posY);
 
   menu.draw(c);
+  console.log(mower.chargingThreshold);
 }
 
 //Lively Property Listener
@@ -355,16 +360,17 @@ function livelyPropertyListener(name, val)
     }
     else if(name == "simulateCharging"){
       simulateCharging = val;
+      console.log(val);
     }
     else if(name == "batteryCapacity"){
       if(val == 0){
-        mower.chargingThreshold = mower.speed * 50;
+        chargingCoefficient = 50;
       }
       else if(val == 1){
-        mower.chargingThreshold = mower.speed * 100;
+        chargingCoefficient = 100;
       }
       else if(val == 2){
-        mower.chargingThreshold = mower.speed * 300;
+        chargingCoefficient = 300;
       }
     }
     else if(name == "grass"){
@@ -374,6 +380,5 @@ function livelyPropertyListener(name, val)
     else if(name == "grassSize"){
       canvas.style.backgroundSize = val + "px";
       body.style.backgroundSize = val + "px";
-      console.warn(val);
     }
 }
