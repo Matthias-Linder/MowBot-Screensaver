@@ -10,4 +10,4 @@ Lively Wallpaper of a Lawn-mowing robot mowing the lawn
 
 ## Download:
 
-Download ready-to-use lively zip file [here](https://github.com/matthias-linder "Github download")
+Download ready-to-use lively zip file [here](https://github.com/Matthias-Linder/MowBot-Wallpaper/releases/download/v1.0/MowBot.Wallpaper.zip "Github download")
