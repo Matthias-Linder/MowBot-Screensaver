@@ -1,0 +1,51 @@
+{
+  "mowerSpeed": {
+    "max": 50,
+    "min": 1,
+    "text": "Simulation speed",
+    "type": "slider",
+    "help": "Change the speed of the Simulation",
+    "value": 1
+  },
+  "displayStation": {
+    "text": "Display Charging Station ",
+    "type": "checkbox",
+    "value": "true",
+    "help": "Decide wether a charging Station should be displayed or not "
+  },
+  "simulateCharging": {
+    "text": "Simulate charging cycles",
+    "type": "checkbox",
+    "value": "false",
+    "help": "Simulate charging the mower. Note: This only works with enabled charging station!"
+  },
+  "batteryCapacity": {
+    "type": "dropdown",
+    "value": 1,
+    "text": "Battery capacity of the mower (Charging Timeout)",
+    "items": ["Low", "Medium", "High"]
+  },
+  "backgroundLabel": {
+    "type": "label",
+    "value": "Background"
+  },
+  "grass": {
+    "type": "folderDropdown",
+    "value": "grass_1.jpg",
+    "text": "Grass Background",
+    "filter": "*.jpg",
+    "folder": ""
+  },
+  "grassSize": {
+    "max": 5000,
+    "min": 100,
+    "text": "Background size",
+    "type": "slider",
+    "help": "Change the size of the background tiling",
+    "value": 250
+  },
+  "stationHint": {
+    "type": "label",
+    "value": "Hint: Click the Charging Station open its menu"
+  }
+}

@@ -1,0 +1,8 @@
+.background{
+    background-image:url("resources/grass/grass_1.jpg");
+    background-repeat: repeat;
+    background-size: 250px;
+}
+body{
+    margin: 0;
+}
